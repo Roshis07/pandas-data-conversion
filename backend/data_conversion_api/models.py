@@ -1,3 +1,6 @@
-from django.db import models
+# # data_inference/models.py
 
-# Create your models here.
+# from django.db import models
+
+# class UploadedFile(models.Model):
+#     file = models.FileField(upload_to='uploads/')
