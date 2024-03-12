@@ -47,8 +47,11 @@ const FileUpload = () => {
     }
   };
 
-  const mapDataType = (dataType) => {
-    if (dataType === 'datetime64[ns]' || dataType === 'timedelta64[ns]') {
+  const mapDataType = (column, dataType) => {
+    const modifiedType = modifiedDataTypes[column];
+    if (modifiedType) {
+      return modifiedType;
+    } else if (dataType === 'datetime64[ns]' || dataType === 'timedelta64[ns]') {
       return 'Date';
     } else if (dataType === 'object') {
       return 'Text';
@@ -95,7 +98,7 @@ const FileUpload = () => {
                 {Object.entries(responseData).map(([column, dataType], index) => (
                   <tr key={column} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
                     <td>{column}</td>
-                    <td>{mapDataType(dataType)}</td>
+                    <td>{mapDataType(column, dataType)}</td>
                     <td>
                       <button
                         onClick={() => handleModifyDataType(column, dataType)}
