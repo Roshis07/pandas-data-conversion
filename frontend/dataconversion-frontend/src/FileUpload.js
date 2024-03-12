@@ -6,6 +6,7 @@ const FileUpload = () => {
   const [file, setFile] = useState(null);
   const [responseData, setResponseData] = useState(null);
   const [error, setError] = useState(null);
+  const [modifiedDataTypes, setModifiedDataTypes] = useState({});
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -13,6 +14,9 @@ const FileUpload = () => {
 
   const handleRemoveFile = () => {
     setFile(null);
+    setResponseData(null);
+    setError(null);
+    setModifiedDataTypes({});
   };
 
   const handleSubmit = async (event) => {
@@ -36,18 +40,26 @@ const FileUpload = () => {
     }
   };
 
+  const handleModifyDataType = (column, dataType) => {
+    const newDataType = prompt('Enter new data type:', dataType);
+    if (newDataType !== null) {
+      setModifiedDataTypes({ ...modifiedDataTypes, [column]: newDataType });
+    }
+  };
+
   const mapDataType = (dataType) => {
-  if (dataType === 'datetime64[ns]' || dataType === 'timedelta64[ns]') {
-    return 'Date';
-  } else if (dataType === 'object') {
-    return 'Text';
-  } else if (dataType.includes('float')) {
-    return 'Number';
-  } else if (dataType.includes('int')) {
-    return 'Number';
-  }
-  return dataType;
-};
+    if (dataType === 'datetime64[ns]' || dataType === 'timedelta64[ns]') {
+      return 'Date';
+    } else if (dataType === 'object') {
+      return 'Text';
+    } else if (dataType.includes('float')) {
+      return 'Number';
+    } else if (dataType.includes('int')) {
+      return 'Number';
+    }
+    return dataType;
+  };
+
   return (
     <div className="container">
       <h1 className="header">Data Conversion Software</h1>
@@ -76,6 +88,7 @@ const FileUpload = () => {
                 <tr className="top-row">
                   <th>Column Name</th>
                   <th>Data Type</th>
+                  <th>Modify</th>
                 </tr>
               </thead>
               <tbody>
@@ -83,6 +96,14 @@ const FileUpload = () => {
                   <tr key={column} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
                     <td>{column}</td>
                     <td>{mapDataType(dataType)}</td>
+                    <td>
+                      <button
+                        onClick={() => handleModifyDataType(column, dataType)}
+                        className="modify-button"
+                      >
+                        Modify
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
