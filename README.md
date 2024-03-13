@@ -27,3 +27,14 @@ To run this application in your device we need to install some packages in the b
 ## for the frontend ( we need to go on the frontend directory which is dataconversion-frontend)
 1) go to project directory and install dependencies (npm install)
 2) run the frontend(npm start)
+
+
+
+
+## Additional notes
+
+This project utilises the python script in the backend and craete views based on this and after this connected to url endpoint based on the 
+views function, backend url is 
+## http://127.0.0.1:8000/data/infer/
+then frontend uses this url endpoint and connected through the post request and return and map data in the frontend which
+is done in FileUpload.js, later this component is render in the App.js in the react 
