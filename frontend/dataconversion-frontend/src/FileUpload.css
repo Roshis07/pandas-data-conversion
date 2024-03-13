@@ -2,15 +2,15 @@
 
 .container {
   width: 80%; 
-  height: 100%;/* Adjust the width as needed */
+  height: 100%;
   margin: auto;
 }
 
 .response-table {
   width: 100%;
   border-collapse: collapse;
-  height: 400px; /* Adjust the height as needed */
-  overflow-y: auto; /* Add vertical scrollbar if content exceeds height */
+  height: 400px;
+  overflow-y: auto; 
 }
 
 .response-table th,
@@ -22,9 +22,8 @@
 .response-table th {
   background-color: #d720a3;
   color: white;
-  height: 80px; /* Adjust the height of the top row */
+  height: 80px; 
 }
-
 .top-row {
   background-color: #f2f2f2;
 }
@@ -132,7 +131,7 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: #337ab7; /* Blue color */
+  color: #337ab7; 
 }
 .container {
   width: 80%;
@@ -155,4 +154,3 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Rest of your styles... */

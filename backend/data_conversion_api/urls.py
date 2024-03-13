@@ -1,4 +1,3 @@
-# data_inference/urls.py
 
 from django.urls import path
 from .views import InferDataTypesView
