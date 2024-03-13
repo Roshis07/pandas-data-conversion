@@ -26,7 +26,8 @@ To run this application in your device we need to install some packages in the b
 
 ## for the frontend ( we need to go on the frontend directory which is dataconversion-frontend)
 1) go to project directory and install dependencies (npm install)
-2) run the frontend(npm start)
+2) npm install axios
+3) run the frontend(npm start)
 
 
 
